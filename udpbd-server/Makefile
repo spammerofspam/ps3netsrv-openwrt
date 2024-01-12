@@ -20,7 +20,7 @@ define Build/Prepare
 endef
 
 define Build/Compile
-	$(TARGET_CC) $(TARGET_CPPFLAGS) $(TARGET_CFLAGS) -o $(PKG_BUILD_DIR)/udpbd-server main.cpp $(TARGET_LDFLAGS)
+	$(TARGET_CXX) $(TARGET_CPPFLAGS) $(TARGET_CFLAGS) -o $(PKG_BUILD_DIR)/udpbd-server main.cpp $(TARGET_LDFLAGS)
 endef
 
 define Package/udpbd-server/install
