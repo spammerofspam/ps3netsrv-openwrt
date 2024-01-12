@@ -13,6 +13,7 @@ define Package/udpbd-server
   CATEGORY:=Network
   SUBMENU:=File Transfer
   TITLE:=PS2 UDPBD server
+  DEPENDS:=+libstdcpp
 endef
 
 define Build/Prepare
