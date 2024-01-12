@@ -47,9 +47,9 @@ jobs:
         ./scripts/feeds update -a
         ./scripts/feeds install -a
         make defconfig
-        make package/udpbd-server/download
-        make package/udpbd-server/prepare
-        make package/udpbd-server/compile
+        make package/udpbd-server/download -j1 -V=s
+        make package/udpbd-server/prepare -j1 -V=s
+        make package/udpbd-server/compile -j1 -V=s
       env:
         USIGN_SECRET: ${{ secrets.USIGN_SECRET }}
     - name: Upload artifact
