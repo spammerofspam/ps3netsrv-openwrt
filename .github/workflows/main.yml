@@ -43,7 +43,7 @@ jobs:
         tar xf $(basename "${{ matrix.sdk_url }}")
         cd $(basename "${{ matrix.sdk_url }}" .tar.xz)
         echo $USIGN_SECRET | base64 -d > key-build
-        echo "src-git udpbd_feed https://github.com/spammerofspam/ps3netsrv-openwrt" >> feeds.conf.default
+        echo "src-git udpbd_feed https://github.com/spammerofspam/udpbd-openwrt" >> feeds.conf.default
         ./scripts/feeds update -a
         ./scripts/feeds install -a
         make defconfig
