@@ -48,7 +48,7 @@ public:
 
         printf("Opened '%s' as Block Device\n", sFileName);
         printf(" - %s\n", _read_only ? "read-only" : "read/write");
-        printf(" - size = %ldMB / %ldMiB\n", _fsize / (1000*1000), _fsize / (1024*1024));
+        printf(" - size = %lldMB / %lldMiB\n", _fsize / (1000*1000), _fsize / (1024*1024));
     }
 
     ~CBlockDevice() {
@@ -64,14 +64,14 @@ public:
     void read(void *data, size_t size) {
         ssize_t rv = ::read(_fp, data, size);
         if (rv != size)
-            printf("read error %ld != %ld\n", rv, size);
+            printf("read error %d != %u\n", rv, size);
     }
 
     void write(const void *data, size_t size) {
         ssize_t rv = ::write(_fp, data, size);
         //printf("write %ld\n", size);
         if (rv != size)
-            printf("write error %ld != %ld\n", rv, size);
+            printf("write error %d != %u\n", rv, size);
     }
 
     uint32_t get_sector_size()  {return 512;}
