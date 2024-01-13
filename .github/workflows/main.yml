@@ -9,15 +9,15 @@ jobs:
       max-parallel: 3
       matrix:
         # platform: [mips_24kc, mipsel_24kc, aarch64_cortex-a53, aarch64_cortex-a72, arm_cortex-a9_vfpv3-d16, mips_4kec, mips_mips32, mipsel_24kc_24kf, mipsel_74kc, mipsel_mips32, mips64_octeonplus, powerpc_464fp, powerpc_8540, aarch64_generic, arc_archs, arm_arm926ej-s, arm_arm1176jzf-s_vfp, arm_cortex-a15_neon-vfpv4, arm_cortex-a5_vfpv4, arm_cortex-a7, arm_cortex-a7_neon-vfpv4, arm_cortex-a8_vfpv3, arm_cortex-a9, arm_cortex-a9_neon, arm_fa526, arm_mpcore, arm_xscale, x86_64, i386_pentium4, i386_pentium-mmx]
-        platform: [arm_cortex-a9_vfpv3-d16, ramips-mt7620]
+        platform: [arm_cortex-a9_vfpv3-d16, mipsel_24kc]
         include:
           - sdk_url: https://downloads.openwrt.org/releases/23.05.2/targets/mvebu/cortexa9/openwrt-sdk-23.05.2-mvebu-cortexa9_gcc-12.3.0_musl_eabi.Linux-x86_64.tar.xz
             platform: arm_cortex-a9_vfpv3-d16
-            upload_name: ps3netsrv_arm_cortex-a9_vfpv3-d16
+            upload_name: udpbd_arm_cortex-a9_vfpv3-d16
             build_path: openwrt-sdk-23.05.2-mvebu-cortexa9_gcc-12.3.0_musl_eabi.Linux-x86_64
           - sdk_url: https://downloads.openwrt.org/releases/23.05.2/targets/ramips/mt7620/openwrt-sdk-23.05.2-ramips-mt7620_gcc-12.3.0_musl.Linux-x86_64.tar.xz
             platform: mipsel_24kc
-            upload_name: ps3netsrv_ramips-mt7620
+            upload_name: udpbd_mipsel_24kc
             build_path: openwrt-sdk-23.05.2-ramips-mt7620_gcc-12.3.0_musl.Linux-x86_64
     steps:
     - uses: actions/checkout@v1
