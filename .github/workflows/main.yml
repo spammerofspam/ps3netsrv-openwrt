@@ -16,7 +16,7 @@ jobs:
             upload_name: ps3netsrv_arm_cortex-a9_vfpv3-d16
             build_path: openwrt-sdk-23.05.2-mvebu-cortexa9_gcc-12.3.0_musl_eabi.Linux-x86_64
           - sdk_url: https://downloads.openwrt.org/releases/23.05.2/targets/ramips/mt7620/openwrt-sdk-23.05.2-ramips-mt7620_gcc-12.3.0_musl.Linux-x86_64.tar.xz
-            platform: ramips-mt7620
+            platform: mipsel_24kc
             upload_name: ps3netsrv_ramips-mt7620
             build_path: openwrt-sdk-23.05.2-ramips-mt7620_gcc-12.3.0_musl.Linux-x86_64
     steps:
