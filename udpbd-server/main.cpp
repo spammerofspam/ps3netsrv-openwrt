@@ -23,6 +23,8 @@
 
 using namespace std;
 
+string bind_addr;
+
 
 /*
  * class CBlockDevice
@@ -102,7 +104,14 @@ public:
         memset((char *) &si_me, 0, sizeof(si_me));
         si_me.sin_family = AF_INET;
         si_me.sin_port = htons(UDPBD_PORT);
-        si_me.sin_addr.s_addr = htonl(INADDR_ANY);
+        if (bind_addr.length() >= 7) {
+            printf("Binding to address %s\n", bind_addr.c_str());
+            si_me.sin_addr.s_addr = inet_addr(bind_addr.c_str());
+        }
+        else {
+            printf("Binding to any address\n");
+            si_me.sin_addr.s_addr = htonl(INADDR_ANY);
+        }
         if (bind(s, (struct sockaddr*)&si_me, sizeof(si_me) ) == -1) {
             throw runtime_error("bind");
         }
@@ -288,6 +297,10 @@ int main(int argc, char * argv[])
         printf("Usage:\n");
         printf("  %s <file>\n", argv[0]);
         return -1;
+    }
+
+    if (argc > 2) {
+        bind_addr = string(argv[2]);
     }
 
     try {
